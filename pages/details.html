@@ -1,0 +1,67 @@
+<div ng-controller="details">
+    <div class="container-fluid details">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <div id="hellopreloader"></div>
+                <img ng-src="https://image.tmdb.org/t/p/w400/{{data.poster_path}}" class="poster-image" alt="">
+            </div>
+            <div class="col-md-8 col-sm-8">
+                <h1>{{ data.title }}</h1>
+                <h2>{{data.tagline}}</h2>
+                <div class="my-4 rating">
+                    <span id=stars></span><span class="vote_average">{{data.vote_average}}</span> 
+                    <span class="small_info">
+                        <span style="text-transform: uppercase">{{data.spoken_languages[0].name}}</span> / {{data.runtime}} MIN. / {{release_year}}
+                    </span>
+                </div>
+                <div class="genres">
+                    <h6>The genres</h6>
+                    <ul>
+                        <li ng-repeat="item in data.genres">
+                            <a href="#!/genres/{{item.name}},{{item.id}}">
+                                <img src="../data/img/play-circle-solid.svg" alt=""> {{ item.name }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="overview">
+                    <h6 style="text-transform: uppercase; font-weight: 600">Overview</h6>
+                    {{data.overview}}
+                </div>
+                <div class="cast">
+                    <h6 style="text-transform: uppercase; font-weight: 600">the cast</h6>
+                    <a href="#!person/{{actors.id}}" ng-repeat="actors in cast| limitTo: 20">{{actors.name}}, </a> 
+                </div>
+                <div class="bottom-btns">
+                    <a href="https://www.imdb.com/title/{{external_id}}" target="_blank">imdb</a>
+                    <a href="{{youtube_link}}" target="_blank">Trailer</a>
+                </div>
+            </div>
+        </div>
+        <div class="similar">
+            <div class="items-title">
+                <h4>Similar</h4>
+                <h6>Movies</h6>
+            </div>
+
+            <div class="movie-grids">
+                <div class="row">
+                    <div class="grids-5" ng-repeat="item in similar">
+                        <a href="#!/details/{{item.id}}" class="grid-items">
+                            <div>
+                                <img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}"  alt="">
+                                
+                                <p>{{item.title}}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <ul>
+        <li ng-repeat="actors in cast">
+            <h4>{{actors.name}}</h4>
+            <img ng-src="https://image.tmdb.org/t/p/w300/{{actors.profile_path}}" alt="">
+        </li>
+    </ul> -->
+</div>

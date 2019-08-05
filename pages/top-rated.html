@@ -1,0 +1,26 @@
+<div ng-controller="topRated">
+    <div class="top">
+        <div class="items-title">
+            <h4>Top Rated</h4>
+            <h6>Movies</h6>
+        </div>
+        
+    </div>
+    <div class="movie-grids">
+        <div class="row">
+            <div class="grids-5" ng-repeat="item in topRated">
+                <a href="#!/details/{{item.id}}" class="grid-items">
+                    <div>
+                        <img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}"  alt="">
+                        
+                        <p>{{item.title}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <button class="prev" ng-if="pages != 1" ng-click="pagesDec()">Prev</button>
+        <button class="next" ng-click="pagesInc()">next</button>
+    </div>
+</div>

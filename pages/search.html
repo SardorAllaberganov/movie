@@ -1,0 +1,26 @@
+<div ng-controller="search">
+    <div class="top">
+        <div class="items-title">
+            <h4 style="text-transform: capitalize">{{model.query}}</h4>
+            <h6>Movies</h6>
+        </div>
+        
+    </div>
+    <div class="movie-grids">
+        <div class="row">
+            <div class="grids-5" ng-repeat="item in search">
+                <a href="#!/details/{{item.id}}, {{item.title}}" class="grid-items">
+                    <div>
+                        <img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" ng-if="item.poster_path == item.poster_path" alt="">
+                        <img class="no-image" src="../data/img/nothing.svg" ng-if="!item.poster_path" alt="">
+                        <p>{{item.title}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <button class="prev" ng-if="pages != 1" ng-click="pagesDec()">Prev</button>
+        <button class="next" ng-if="total_pages > 1" ng-click="pagesInc()">next</button>
+    </div>
+</div>

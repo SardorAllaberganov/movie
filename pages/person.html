@@ -1,0 +1,40 @@
+<div ng-controller="person" class="person">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <img ng-src="https://image.tmdb.org/t/p/w400/{{person.profile_path}}" class="person-image" alt="">
+            </div>
+            <div class="col-md-8">
+                <div class="inner-person-info">
+                    <h1>{{person.name}}</h1>
+                    <h6><span class="mr-5">{{person.birthday}}</span>  <span class="ml-5"><div style="display: inline" class="ml-3" id="stars"></div> | {{person.popularity}}</span></h6>
+                    <h5 class="mt-4">THE BIOGRAPHY</h5>
+                    <p>{{person.biography}}</p>
+                    <div class="bottom-btn">
+                        <a href="https://www.imdb.com/name/{{ext_id}}" target="_blank">IMDB
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <h4 style="text-transform: uppercase">Also played in</h4>
+            <h6>MOVIES</h6>
+        </div>
+        <div class="row">
+            <div class="movie-grids">
+                    <div class="row">
+                        <div class="grids-5" ng-repeat="item in credits">
+                            <a href="#!/details/{{item.id}}" class="grid-items">
+                                <div>
+                                    <img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" ng-if="item.poster_path == item.poster_path" alt="">
+                                    <img class="no-image" src="../data/img/no-photo-available.png" ng-if="!item.poster_path" alt="">
+                                    <p>{{item.title}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
