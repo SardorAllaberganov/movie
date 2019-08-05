@@ -161,7 +161,7 @@ app.controller("details", function ($scope, $routeParams, $http) {
     $scope.id = $routeParams.id;
     $http({
         method: "GET",
-        url: 'http://api.themoviedb.org/3/movie/' + $scope.id + '/casts?api_key=a4942ba2bb35ba2f7205bedb5a8989bc'
+        url: 'https://api.themoviedb.org/3/movie/' + $scope.id + '/casts?api_key=a4942ba2bb35ba2f7205bedb5a8989bc'
     }).then(function mySuccess(response) {
         $scope.cast = response.data.cast;
     }, function myError(response) {
@@ -169,7 +169,7 @@ app.controller("details", function ($scope, $routeParams, $http) {
     });
     $http({
         method: "GET",
-        url: 'http://api.themoviedb.org/3/movie/' + $scope.id + '/external_ids?api_key=a4942ba2bb35ba2f7205bedb5a8989bc'
+        url: 'https://api.themoviedb.org/3/movie/' + $scope.id + '/external_ids?api_key=a4942ba2bb35ba2f7205bedb5a8989bc'
     }).then(function mySuccess(response) {
         $scope.external_id = response.data.imdb_id;
     }, function myError(response) {
@@ -178,7 +178,7 @@ app.controller("details", function ($scope, $routeParams, $http) {
 
     $http({
         method: "GET",
-        url: 'http://api.themoviedb.org/3/movie/' + $scope.id + '?api_key=a4942ba2bb35ba2f7205bedb5a8989bc'
+        url: 'https://api.themoviedb.org/3/movie/' + $scope.id + '?api_key=a4942ba2bb35ba2f7205bedb5a8989bc'
     }).then(function mySuccess(response) {
         $scope.data = response.data;
 
@@ -232,7 +232,7 @@ app.controller("details", function ($scope, $routeParams, $http) {
 
     $http({
         method: "GET",
-        url: 'http://api.themoviedb.org/3/movie/' + $scope.id + '/videos?api_key=a4942ba2bb35ba2f7205bedb5a8989bc'
+        url: 'https://api.themoviedb.org/3/movie/' + $scope.id + '/videos?api_key=a4942ba2bb35ba2f7205bedb5a8989bc'
     }).then(function mySuccess(response) {
         $scope.key = response.data.results[0].key;
         $scope.youtube_link = 'https://www.youtube.com/watch?v=' + $scope.key;
